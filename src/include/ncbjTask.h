@@ -12,10 +12,10 @@ struct isimple
 class Derived : public isimple
 {
     mutable int value;
-    mutable int counter = 0;
+    mutable int counter;
 
 public:
-    Derived() : value(0) {}
+    Derived() : value(0), counter(0) {}
 
     virtual int getValue() const override;
     virtual void setValue(int value) const override;
