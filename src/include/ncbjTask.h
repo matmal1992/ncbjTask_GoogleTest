@@ -1,3 +1,6 @@
+#ifndef _NCBJTASK_H_
+#define _NCBJTASK_H_
+
 #include <iostream>
 #include <stdexcept>
 
@@ -7,6 +10,7 @@ struct isimple
 {
     virtual int getValue() const = 0;
     virtual void setValue(int) const = 0;
+    virtual int getCounter() const = 0;
 };
 
 class Derived : public isimple
@@ -19,11 +23,10 @@ public:
 
     virtual int getValue() const override;
     virtual void setValue(int value) const override;
-
-    void incrementCounter()const;
-    int getCounter();
+    virtual int getCounter() const override;
 };
 
 int ncbj_function(const isimple &a, int b);
-
 int getRandomNumber();
+
+#endif

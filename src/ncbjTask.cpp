@@ -11,14 +11,10 @@ using namespace std;
 
     void Derived::setValue(int value) const {
         this -> value = value;
-        incrementCounter();
-    }
-
-    void Derived::incrementCounter()const {
         counter++;
     }
 
-    int Derived::getCounter(){
+    int Derived::getCounter() const {
         return counter;
     }
 
@@ -40,8 +36,7 @@ using namespace std;
             
         if (b == 10)
             return b;
-    
-        if (b != 10)
+        else
             return a.getValue();
     }
 

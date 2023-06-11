@@ -34,25 +34,31 @@ TEST_F(ncbjFunctionTest, Throw_runtime_error_when_b_equals_34){
     }
 }
 
-TEST_F(ncbjFunctionTest, Call_setValue_exactly_one_time_when_b_is_smaller_than_10){
+TEST_F(ncbjFunctionTest, Call_setValue_B_exactly_one_time_when_b_is_smaller_than_10){
     int b = 9;
     ASSERT_TRUE(b < 10);
 
     ncbj_function(*ptr, b);
     int expectedCounter = 1;
     int actualCounter = d1.getCounter();
-
     EXPECT_EQ(expectedCounter, actualCounter);
+
+    int expectedValue = b;
+    int actualValue = d1.getValue();
+    EXPECT_EQ(expectedValue, actualValue);
 }
 
-TEST_F(ncbjFunctionTest, Call_setValue_at_least_one_time_when_b_is_greater_or_equal_10){
+TEST_F(ncbjFunctionTest, Call_setValue_2B_at_least_one_time_when_b_is_greater_or_equal_10){
     int b = 11;
     ASSERT_TRUE(b >= 10);
 
     ncbj_function(*ptr, b);
     int actualCounter = d1.getCounter();
-
     EXPECT_TRUE(actualCounter > 0);
+
+    int expectedValue = 2 * b;
+    int actualValue = d1.getValue();
+    EXPECT_EQ(expectedValue, actualValue);
 }
 
 TEST_F(ncbjFunctionTest, Return_10_when_b_equals_10){ 
